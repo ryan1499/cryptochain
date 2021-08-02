@@ -24,14 +24,18 @@
   "dependencies": {
     "blocks": "^0.3.5",
     "body-parser": "^1.18.3",
+    "bootstrap": "^5.0.2",
     "core-js": "^2.6.12",
     "elliptic": "^6.4.1",
     "express": "^4.16.3",
     "hex-to-binary": "^1.0.1",
+    "history": "^4.7.2",
     "parcel-bundler": "1.12.5",
     "pubnub": "^4.21.6",
     "react": "^17.0.2",
+    "react-bootstrap": "^0.32.4",
     "react-dom": "^17.0.2",
+    "react-router-dom": "^4.3.1",
     "request": "^2.88.0",
     "uuid": "^3.4.0"
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Blocks from './Blocks';
+import { Link } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 class App extends Component {
     state = {
@@ -7,7 +8,7 @@ class App extends Component {
     };
 
     componentDidMount() {
-        fetch('http://localhost:3000/api/wallet-info')
+        fetch(`${document.location.origin}/api/wallet-info`)
             .then(res => res.json())
                 .then(json => this.setState({ walletInfo: json }));
     }
@@ -16,12 +17,19 @@ class App extends Component {
         const {address, balance } = this.state.walletInfo;
 
         return(
-            <div>
-                <div>Welcome to the blockchain...</div>
-                <div>Address: {address}</div>
-                <div>Balance: {balance}</div>
+            <div className='App'>
+                <img className='logo' src={logo}></img>
                 <br />
-                <Blocks />
+                <div>Welcome to the blockchain...</div>
+                <br />
+                <div><Link to='/blocks'>Blocks</Link></div>
+                <div><Link to='/conduct-transaction'>Conduct a Transaction</Link></div>
+                <div><Link to='/transaction-pool'>Transaction Pool</Link></div>
+                <br />
+                <div className='WalletInfo'>
+                    <div>Balance: {balance}</div>
+                    <div>Address: {address}</div>
+                </div>
             </div>
         );
     }
