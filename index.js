@@ -3,8 +3,6 @@ const request = require('request');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-const isDevelopment = process.env.ENV === 'development';
-
 const Blockchain = require('./blockchain');
 const PubSub = require('./app/pubsub');
 const TransactionPool = require('./wallet/transaction-pool');
@@ -17,6 +15,8 @@ const transactionPool = new TransactionPool();
 const wallet = new Wallet();
 const pubsub = new PubSub({ blockchain, transactionPool, wallet });
 const transactionMiner = new TransactionMiner({ blockchain, transactionPool, wallet, pubsub });
+
+const isDevelopment = process.env.ENV === 'development';
 
 const DEFAULT_PORT = 3000;
 const ROOT_NODE_ADDRESS = `http://localhost:${DEFAULT_PORT}`;
